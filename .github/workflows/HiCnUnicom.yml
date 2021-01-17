@@ -3,8 +3,12 @@ name: 联通掌厅签到
 on:
   workflow_dispatch:
   schedule:
-    - cron: 30 04,23 * * ?
-    
+    - cron: 30 04,23 * * *
+  watch:
+    types: [started]
+  repository_dispatch:
+    types: CnUnicom
+ 
 jobs:
   run-it:
     runs-on: ubuntu-latest
